@@ -10,13 +10,12 @@ const initialItems = [
   { id: 3, description: "Charger", quantity: 1, packed: false },
 ];
 
-console.log(initialItems);
 
 function App() {
   return (
     <div className="app">
       <Logo />
-      <Form />
+      <Form initialItems={initialItems} />
       <PackingList initialItems={initialItems} />
       <Stats />
     </div>

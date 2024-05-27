@@ -1,6 +1,6 @@
 
 const Item = ({ id, quantity, description, packed }) => {
-  console.log(packed);
+  // console.log(packed);
   return (
     <>
       <li key={id}>
