@@ -1,7 +1,7 @@
-
+import { useState } from "react";
 import Logo from "./Logo";
-import Form from "./Form"
-import Stats from "./Stats"
+import Form from "./Form";
+import Stats from "./Stats";
 import PackingList from "./PackingList";
 
 const initialItems = [
@@ -10,16 +10,27 @@ const initialItems = [
   { id: 3, description: "Charger", quantity: 1, packed: false },
 ];
 
-
 function App() {
+  const [items, setItems] = useState([]);
+
+  function handleAddItems(item) {
+    setItems((items) => [...items, item]);
+  }
+
+  const handleDelete = (id) => {
+    const newAfterDeleteItem = items.filter((item) => item.id !== id);
+    setItems(newAfterDeleteItem);
+    console.log(items);
+  };
+
   return (
     <div className="app">
       <Logo />
-      <Form initialItems={initialItems} />
-      <PackingList initialItems={initialItems} />
+      <Form handleAddItems={handleAddItems} />
+      <PackingList items={items} handleDelete={handleDelete} />
       <Stats />
     </div>
   );
 }
 
-export default App
+export default App;

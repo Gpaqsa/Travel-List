@@ -1,15 +1,16 @@
 import Item from "./Item"
 
-const PackingList = ({ initialItems }) => {
+const PackingList = ({ items, handleDelete }) => {
   return (
     <div className="list">
       <ul>
-        {initialItems.map((item) => (
+        {items.map((item) => (
           <Item
             key={item.id}
-            description={item.description}
-            quantity={item.quantity}
+            description={item.descriptionValue}
+            quantity={item.quantityValue}
             packed={item.packed}
+            handleDelete={handleDelete}
           />
         ))}
       </ul>

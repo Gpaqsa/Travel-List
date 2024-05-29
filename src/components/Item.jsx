@@ -1,5 +1,5 @@
 
-const Item = ({ id, quantity, description, packed }) => {
+const Item = ({ id, quantity, description, packed, handleDelete }) => {
   // console.log(packed);
   return (
     <>
@@ -7,7 +7,7 @@ const Item = ({ id, quantity, description, packed }) => {
         <span style={packed ? { textDecoration: "line-through" } : {}}>
           {quantity} {description}
         </span>
-        <button>❌</button>
+        <button onClick={() => handleDelete(id)}>❌</button>
       </li>
     </>
   );
