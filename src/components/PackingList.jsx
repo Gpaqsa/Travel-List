@@ -6,11 +6,12 @@ const PackingList = ({ items, handleDelete }) => {
       <ul>
         {items.map((item) => (
           <Item
-            key={item.id}
-            description={item.descriptionValue}
-            quantity={item.quantityValue}
+            description={item.description}
+            quantity={item.quantity}
             packed={item.packed}
             handleDelete={handleDelete}
+            key={item.id}
+            id={item.id}
           />
         ))}
       </ul>
